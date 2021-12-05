@@ -8,11 +8,11 @@ function setClocks() {
     const hour = currentDate.getHours()
 
     targets.forEach(e => {
-        e.innerHTML = `${hour<10?' ':''}${hour}:${min<10?'0':''}${min}:${sec<10?'0':''}${sec}`
+        e.innerHTML = `${hour<10?'0':''}${hour}:${min<10?'0':''}${min}:${sec<10?'0':''}${sec}`
     });
 
 
-    console.log(`${hour} : ${min} : ${sec}`);
+    // console.log(`${hour} : ${min} : ${sec}`);
 }
 
 setClocks()
