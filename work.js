@@ -26,7 +26,7 @@ start_button.addEventListener("click", () => {
     newDiv.append(newEle)
 
     newEle = document.createElement("span")
-    newEle.innerText = description!='' ? description : "Empty"
+    newEle.innerText = description != '' ? description : "Empty"
     newDiv.append(newEle)
 
     newEle = document.createElement("span")
@@ -36,13 +36,13 @@ start_button.addEventListener("click", () => {
     newDiv.append(document.createElement("br"))
 
     newEle = document.createElement("span")
-    newEle.innerText = `${start_hour<10?'0':''}${start_hour}:${start_min<10?'0':''}${start_min}:${start_sec<10?'0':''}${start_sec}`
+    newEle.innerText = `${start_hour < 10 ? '0' : ''}${start_hour}:${start_min < 10 ? '0' : ''}${start_min}:${start_sec < 10 ? '0' : ''}${start_sec}`
     newDiv.append(newEle)
 
     newEle = document.createElement("button")
     newEle.innerText = 'Stop'
     newEle.addEventListener('click', () => {
-        document.querySelector('#m'+task_id).remove()
+        document.querySelector('#m' + task_id).remove()
     })
     newDiv.append(newEle)
 
@@ -51,3 +51,21 @@ start_button.addEventListener("click", () => {
     document.querySelector('.active-works').append(newDiv)
 
 })
+
+const test_button = document.querySelector('#test-button')
+
+test_button.addEventListener('click', () => {
+    // Get a reference to the table
+    let tableRef = document.getElementById('done-work-table');
+
+    // Insert a row at the end of the table
+    let newRow = tableRef.insertRow(01);
+
+    // Insert a cell in the row at index 0
+    let newCell = newRow.insertCell(0);
+
+    // Append a text node to the cell
+    let newText = document.createTextNode('New bottom row');
+    newCell.appendChild(newText);
+})
+
