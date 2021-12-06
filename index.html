@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="./clock.png">
     <script src="./script.js" defer></script>
     <script src="./work.js" defer></script>
+    <script src="./newwork.js" defer></script>
 </head>
 
 <body>
@@ -33,7 +34,28 @@
 
     <div class="active-works section">
         <div class="label"> Activ tasks: </div>
-        <!-- Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt, impedit voluptatem! Doloribus quis ipsa aut labore error. Quis molestiae magnam dolorum expedita ipsa explicabo cupiditate! Consectetur itaque impedit id ipsam. -->
+        <table id="done-work-table">
+            <tr>
+                <th>Company</th>
+                <th>Task</th>
+                <th>Description</th>
+                <th>Start</th>
+                <th>Stop</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+                <td>99:99</td>
+                <td>99:99</td>
+                <td>
+                    <img src="./trash.png" alt="trash" width="25px">
+                    <img src="./edit.png" alt="edit" width="25px">
+                    <img src="./info.png" alt="information" width="25px">
+                </td>
+            </tr>
+        </table>
         <br>
     </div>
 
@@ -92,14 +114,11 @@
         <button id='test-button'>test ;)</button>
     </div>
 
-    <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a
-            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-    <div>Icons made by <a href="" title="bqlqn">bqlqn</a> from <a href="https://www.flaticon.com/"
-            title="Flaticon">www.flaticon.com</a></div>
-    <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a>
+    <div>Icons made by 
+        <a href="https://www.freepik.com" title="Freepik">Freepik</a>, 
+        <a href="" title="bqlqn">bqlqn</a> and 
+        <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a>
         from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-    <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a
-            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 </body>
 
 </html>
