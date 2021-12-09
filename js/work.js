@@ -86,7 +86,7 @@ function add_activ_row(task) {
 
     // Insert a cell in the row at index 0
     let newCell = newRow.insertCell(0);
-    
+
 
     // Append a text node to the cell
     let newText = document.createTextNode(`${task.company}`);
@@ -133,6 +133,6 @@ function sleep(milliseconds) {
     const date = Date.now();
     let currentDate = null;
     do {
-      currentDate = Date.now();
+        currentDate = Date.now();
     } while (currentDate - date < milliseconds);
-  }
+}
