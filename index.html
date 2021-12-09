@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work log app</title>
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="icon" type="image/x-icon" href="./clock.png">
+    <link rel="icon" type="image/x-icon" href="./img/clock.png">
 
     <script src="./js/script.js" defer></script>
     <script src="./js/work.js" defer></script>
@@ -17,16 +17,8 @@
 <body>
     <div class='add-work section'>
         <div class="label"> New Work: </div>
-        <select name="primary" id="primary">
-            <option value="company-1">company-1</option>
-            <option value="company-2">company-2</option>
-            <option value="company-3">company-3</option>
-        </select>
-        <select name="secondary" id="secondary">
-            <option value="task-1">task-1</option>
-            <option value="task-2">task-2</option>
-            <option value="task-3">task-3</option>
-        </select>
+        <select name="primary" id="primary"></select>
+        <select name="secondary" id="secondary"></select>
         <textarea name="description" id="textarea_description" cols="30" rows="1"></textarea>
         <span class="current_time clock"></span>
         <button class='btn-start'>Start</button>
