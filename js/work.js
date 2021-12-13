@@ -33,7 +33,7 @@ start_button.addEventListener("click", () => {
     new_ele.addEventListener('click', () => {
         tableRef.deleteRow(`m${task_id}`);
     })
-    
+
     newCell.appendChild(new_ele);
 
     // newEle = document.createElement("button")
@@ -42,10 +42,6 @@ start_button.addEventListener("click", () => {
     //     alert('TO OD !!!')
     // })
     // newDiv.append(newEle)
-
-
-
-
 
     // newDiv = document.createElement("div");
     // newDiv.id = 'm' + task_id
