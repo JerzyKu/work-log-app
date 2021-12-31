@@ -1,0 +1,37 @@
+ZADANIA: 
+1) logowanie się
+2) obsługa użytkowników 
+3) obsłuda firm
+
+
+
+WIDOKI:
+- pracownik: rozpoczynanie, pauzowanie, kończenie zlecenia. Widok trwających. Widok zakończonych ostatnie 10.
+RAPORTY(accounting) 
+HISTORIA 
+DODAWANIE FIRM(admin) 
+
+
+MODELE:
+użytkownik
+ typ: admin user księgowość, 
+ dostęp do firm
+ Imię, nazwisko, email, tel 
+Firma, 
+ Dane firmy, możliwe podtaski 
+Task
+ Firma zadanie Początek, koniec, pracownik, przerwy
+
+
+Future features:
+Pomodoro metod(global onoff, user onoff, global settings, user settings)??Company??
+
+Iddle log off???global onoff
+Analitycs 
+
+
+
+mpn init
+npm i express
+npm i --save-dev nodemon
+npm i mongoose ejs
