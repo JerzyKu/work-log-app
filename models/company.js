@@ -5,6 +5,9 @@ const companySchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    subtask: {
+        type: {}
+    },
     createdAt: {
         type: Date,
         require: true,

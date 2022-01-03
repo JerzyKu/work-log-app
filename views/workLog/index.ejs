@@ -1,0 +1,94 @@
+
+
+<div class='add-work section'>
+    <div class="label"> New Work: </div>
+    <form action="/worklog/start" method="post">
+        <select name="nameee">
+            <% companys.forEach(e=> { %>
+                <option value="<%= e.id %>">
+                    <%= e.companyName %>
+                </option>
+                <% }) %>
+        </select>
+        <textarea name="description" id="textarea_description" cols="30" rows="1"></textarea>
+        <span class="current_time clock"></span>
+        <button class='btn-start' type="submit">Start</button>
+    </form>
+</div>
+
+
+<div class="active-works section">
+    <div class="label"> Activ tasks: </div>
+    <table id="done-work-table">
+        <tr>
+            <th>Company</th>
+            <th>Description</th>
+            <th>Start</th>
+            <th>Actions</th>
+        </tr>
+        <% tasks.forEach( e => { %>
+            <tr>
+                <td><%= e.taskName %></td>
+                <td><%= e.description === undefined ? '' : e.description.slice(0, 42) %></td>
+                <td><%= e.createdAtToHhMm %></td>
+                <td>
+                    <img src="./img/trash.png" alt="trash" width="25px">
+                    <img src="./img/edit.png" alt="edit" width="25px">
+                    <img src="./img/info.png" alt="information" width="25px">
+                </td>
+            </tr>
+        <% }) %> 
+    </table>
+    <br>
+</div>
+
+<div class="done-works section">
+    <div class="label"> Done tasks: </div>
+    <table id="done-work-table">
+        <tr>
+            <th>Company</th>
+            <th>Task</th>
+            <th>Description</th>
+            <th>Start</th>
+            <th>Stop</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+            <td>99:99</td>
+            <td>99:99</td>
+            <td>
+                <img src="./img/trash.png" alt="trash" width="25px">
+                <img src="./img/edit.png" alt="edit" width="25px">
+                <img src="./img/info.png" alt="information" width="25px">
+            </td>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+            <td>99:99</td>
+            <td>99:99</td>
+            <td>
+                <img src="./img/trash.png" alt="trash" width="25px">
+                <img src="./img/edit.png" alt="edit" width="25px">
+                <img src="./img/info.png" alt="information" width="25px">
+            </td>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germanyskoljedrgajnipsfgrtbeiaerjgoaeiprjngsiejngfsjnodbfgrfghojnkjniopgehtrasojnpdfhgjnopksbfghr
+            </td>
+            <td>99:99</td>
+            <td>99:99</td>
+            <td>
+                <img src="./img/trash.png" alt="trash" width="25px">
+                <img src="./img/edit.png" alt="edit" width="25px">
+                <img src="./img/info.png" alt="information" width="25px">
+            </td>
+        </tr>
+    </table>
+</div>

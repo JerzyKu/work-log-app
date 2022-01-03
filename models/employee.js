@@ -24,7 +24,23 @@ const employeeSchema = new mongoose.Schema({
         type: Date,
         require: true,
         default: Date.now
+    },
+    locked: {
+        type: Boolean,
+        require: true,
+        default: false
+    },
+    disabled: {
+        type: Boolean,
+        require: true,
+        default: false
+    },
+    wrongPassInputCounter: {
+        type: Number,
+        required: true,
+        default: 0
     }
+
 })
 
 
