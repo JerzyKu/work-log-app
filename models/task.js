@@ -1,10 +1,6 @@
 const mongoose = require('mongoose')
 
 const taskSchema = new mongoose.Schema({
-    taskName: {
-        type: String,
-        required: true
-    },
     createdAt: {
         type: Date,
         require: true,
@@ -28,7 +24,14 @@ const taskSchema = new mongoose.Schema({
 
     },
     company : {
-
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Company'
+    },
+    status: {
+        type: String,
+        require: true,
+        default: 'Started'
     }
 })
 

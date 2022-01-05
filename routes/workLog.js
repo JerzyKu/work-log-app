@@ -10,17 +10,19 @@ router.get('/', async (req, res) => {
     let tasks
     try {
         companys = await Company.find({}).exec()
-        tasks = await Task.find({}).exec()
+        tasks = await Task.find({status: 'Started'}).populate('company').exec()
+        endedTask = await Task.find({status: { $ne: 'Started'}}).populate('company').limit(5).sort({createdAt: -1}).exec()
     } catch {
         companys = []
         tasks = []
     }
-    res.render('workLog/index', {companys: companys, tasks: tasks})
+    res.render('workLog/index', {companys: companys, tasks: tasks, endedTask: endedTask})
 })
+
 
 router.post('/start', async (req, res) => {
     const task = new Task({
-        taskName: req.body.nameee,
+        company: req.body.nameee,
         description: req.body.description
     })
     try {
@@ -34,6 +36,21 @@ router.post('/start', async (req, res) => {
 
 router.get('/start', (req,res) => {
     res.redirect('/worklog')
+})
+
+router.put('/:id/stop', async (req, res) => {
+    try {
+        const date = new Date()
+        // console.log(date);
+        let task = await Task.findById(req.params.id)
+        task.stopedAt = date
+        task.status = 'ended'
+        await task.save()
+        res.redirect('/worklog')
+    } catch (e){
+        console.log('ERROR: ', e);
+        res.send(e)
+    }
 })
 
 module.exports = router
