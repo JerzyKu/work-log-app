@@ -1,52 +1,65 @@
-<h1>History</h1>
 
-<form action="/history" method="GET">
-    <select name="companyName">
-        <option value="">All</option>
-        <% companys.forEach(e=> { %>
-            <% if (e.id == searchOptions.companyName) { %>
-                <option selected value="<%= e.id %>"><%= e.companyName %></option>
-            <% } else { %>
-                <option value="<%= e.id %>"><%= e.companyName %></option>
-            <% }%>
-        <% }) %>
-    </select>
-    <div>
-        <label>After</label>
-        <input type="date" name="endedAfter" value="<%= searchOptions.endedAfter %>">
-    </div>
-    <div>
-        <label>Before</label>
-        <input type="date" name="endedBefore" value="<%= searchOptions.endedBefore %>">
-    </div>
-    <button type="submit">Search</button>
-</form>
 
-<table id="done-work-table">
-    <tr>
-        <th>Company</th>
-        <th>Description</th>
-        <th>Start</th>
-        <th>End</th>
-        <th>Actions</th>
-    </tr>
-    <% tasks.forEach( e=> { %>
+<div class="section">
+    <div class="label">Query</div>
+    <form action="/history" method="GET">
+        <select name="companyName">
+            <option value="">All</option>
+            <% companys.forEach(e=> { %>
+                <% if (e.id == searchOptions.companyName) { %>
+                    <option selected value="<%= e.id %>"><%= e.companyName %></option>
+                <% } else { %>
+                    <option value="<%= e.id %>"><%= e.companyName %></option>
+                <% }%>
+            <% }) %>
+        </select>
+        <div>
+            <label>After</label>
+            <input type="date" name="endedAfter" value="<%= searchOptions.endedAfter %>">
+        </div>
+        <div>
+            <label>Before</label>
+            <input type="date" name="endedBefore" value="<%= searchOptions.endedBefore %>">
+        </div>
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+
+
+<div class="section">
+    <div class="label">History</div>
+    <table id="done-work-table">
         <tr>
-            <td>
-                <%= e.company.companyName %>
-            </td>
-            <td>
-                <%= e.description===undefined ? '' : e.description.slice(0, 42) %>
-            </td>
-            <td>
-                <%= e.createdAt.toLocaleTimeString('pl-PL').slice(0,5) %>
-            </td>
-            <td>
-                <%= e.stopedAt==undefined ? "" : e.stopedAt.toLocaleTimeString('pl-PL').slice(0,5) %>
-            </td>
-            <td>
-                <button> :) </button>
-            </td>
+            <th>Company</th>
+            <th>Description</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Actions</th>
         </tr>
-        <% }) %>
-</table>
+        <% tasks.forEach( e=> { %>
+            <tr>
+                <td>
+                    <%= e.company.companyName %>
+                </td>
+                <td>
+                    <%= e.description===undefined ? '' : e.description.slice(0, 42) %>
+                </td>
+                <td>
+                    <%= e.createdAt.toLocaleTimeString('pl-PL').slice(0,5) %>
+                </td>
+                <td>
+                    <%= e.stopedAt==undefined ? "" : e.stopedAt.toLocaleTimeString('pl-PL').slice(0,5) %>
+                </td>
+                <td>
+                    <button> :) </button>
+                </td>
+                <td>
+                    <%= e.duration %>
+
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+
+</div>

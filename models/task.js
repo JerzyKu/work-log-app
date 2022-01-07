@@ -35,13 +35,21 @@ const taskSchema = new mongoose.Schema({
     }
 })
 
-// taskSchema.virtual('taskTime').get(function(){
-//     if (this.stopedAt != null){
-//         return this.stopedAt - this.startedAt
-//     } else {
-//         return 0
-//     }
-// })
+taskSchema.virtual('duration').get(function(){
+    if (this.stopedAt == null){
+        return 'Still going :)'
+    }
+    if (this.stopedAt.toLocaleDateString() == this.startedAt.toLocaleDateString()) {
+        return new Date(this.stopedAt - this.startedAt).toLocaleTimeString()
+    } else {
+        return 0
+    }
+    // const minutes = this.stopedAt - this.startedAt
+
+    // if (this.stopedAt != null){
+    //     return new Date()
+    // } 
+})
 
 taskSchema.virtual('createdAtToHhMm').get(function(){
     const m = this.createdAt.getMinutes()
