@@ -17,12 +17,14 @@ router.get('/', async (req, res) => {
     }
     if (req.query.endedBefore != null && req.query.endedBefore != ''){
         query = query.lte('stopedAt', req.query.endedBefore) // less then equal
-        console.log('tutaj');
     }
     if (req.query.endedAfter != null && req.query.endedAfter != ''){
         query = query.gte('stopedAt', req.query.endedAfter) // greater then equal
     }
 
+    let t = {}
+    t.endedAfter = new Date(new Date().setDate(1)).toISOString().split('T')[0]
+    t.endedBefore = new Date().toISOString().split('T')[0]
     try {
         tasks = await query.populate('company').exec()
         companys = await Company.find({}).exec()
@@ -31,8 +33,7 @@ router.get('/', async (req, res) => {
         tasks = []
         companys = []
     }
-    console.log(req.query);
-    res.render('history/index', {tasks: tasks, companys: companys, searchOptions: req.query})
+    res.render('history/index', {tasks: tasks, companys: companys, searchOptions: req.query === {} ? req.query : t})
 })
 
 module.exports = router

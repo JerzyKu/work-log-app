@@ -36,6 +36,13 @@ const taskSchema = new mongoose.Schema({
 })
 
 taskSchema.virtual('duration').get(function(){
+    let diff = new Date(new Date(this.stopedAt - this.startedAt).getTime())
+    let s = diff.getUTCSeconds() + ''
+    let m = diff.getUTCMinutes() + ''
+    let h = diff.getUTCHours() + ''
+    return `${(h+'').padStart(2,'0')}:${(m+'').padStart(2,'0')}:${(s+'').padStart(2,'0')}`
+    return new Date(this.stopedAt - this.startedAt).toLocaleTimeString()
+
     if (this.stopedAt == null){
         return 'Still going :)'
     }
