@@ -1,0 +1,5 @@
+<div class="actions">
+    <a href=<%= `/task/${e.id}` %> >View</a>
+    <a href=<%= `/task/${e.id}/edit` %> >Edit</a>
+    <%- include('../partials/deleteForm', {url: `/task/${e.id}`}) %>
+</div>

@@ -1,0 +1,7 @@
+<% companys.forEach(e=> { %>
+    <% if (e.id == selected.id || selected !== '' ) { %>
+        <option selected value="<%= e.id %>"><%= e.companyName %></option>
+    <% } else { %>
+        <option value="<%= e.id %>"><%= e.companyName %></option>
+    <% }%>
+<% }) %>

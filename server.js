@@ -13,6 +13,7 @@ const indexRouter = require('./routes/index')
 const historyRouter = require('./routes/history')
 const workLogRouter = require('./routes/workLog')
 const settingsRouter = require('./routes/settings')
+const taskRouter = require('./routes/task')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -36,6 +37,7 @@ app.use('/', indexRouter)
 app.use('/history', historyRouter)
 app.use('/worklog', workLogRouter)
 app.use('/settings', settingsRouter)
+app.use('/task', taskRouter)
 
 app.listen(process.env.PORT || 3001)
 

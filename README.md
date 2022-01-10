@@ -8,7 +8,8 @@ Application is used for logging and summation time spended of multiple workers f
 * generate summary: based of period, company, worker, employee or mixed parametrs
 * 
 ## To do's: 
-* edit/delete task 
+* ~~edit/delete task~~
+* last month button in history
 * delete company, if used set state of disable 
 * edit company
 * counting Hours in history
@@ -17,3 +18,7 @@ Application is used for logging and summation time spended of multiple workers f
 * some kind of plot analitics 
 *  
 
+## make decision:
+if task shoud be longer then one day
+for simplisity: no
+for be realistics: yes 

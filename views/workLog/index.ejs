@@ -3,11 +3,7 @@
     <div class="label"> <h2>New Task: </div>
     <form action="/worklog/start" method="post">
         <select name="nameee">
-            <% companys.forEach(e=> { %>
-                <option value="<%= e.id %>">
-                    <%= e.companyName %>
-                </option>
-                <% }) %>
+            <%- include('../partials/opiton_companys', {companys: companys, selected: ''}) %>
         </select>
         <textarea name="description" id="textarea_description" cols="30" rows="1"></textarea>
         <span class="current_time clock"></span>
@@ -41,25 +37,5 @@
 </div>
 
 <div class="done-works section">
-    <div class="label"> <h2>Done tasks:</h2> </div>
-    <table id="done-work-table">
-        <tr>
-            <th>Company</th>
-            <th>Description</th>
-            <th>Start</th>
-            <th>End</th>
-            <th>Actions</th>
-        </tr>
-        <% endedTask.forEach( e => { %>
-            <tr>
-                <td><%= e.company.companyName %></td>
-                <td><%= e.description === undefined ? '' : e.description.slice(0, 42) %></td>
-                <td><%= e.createdAt.toLocaleTimeString('pl-PL').slice(0,5) %></td>
-                <td><%= e.stopedAt.toLocaleTimeString('pl-PL').slice(0,5) %></td>
-                <td>
-                    <button> :) </button>
-                </td>
-            </tr>
-        <% }) %> 
-    </table>
+    <%- include('../partials/history_table', {tasks: endedTask}) %> 
 </div>

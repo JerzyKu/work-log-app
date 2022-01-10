@@ -1,0 +1,10 @@
+<div>
+    <h2>Edit</h2>
+    <h3><%= task.id %>:</h3>
+    <strong>Comapny Name:</strong> <%= task.company.companyName %> <br>
+    <strong>Description:</strong> <%= task.description %> <br>
+    <strong>Start:</strong> <%= task.startedAt %> <br>
+    <strong>Stop:</strong> <%= task.stopedAt %> <br>
+    <strong>Duration:</strong> <%= task.duration %> <br>
+    <a href=<%=`/task/${task.id}/edit` %>>Edit</a>
+</div>

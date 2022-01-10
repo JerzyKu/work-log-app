@@ -1,0 +1,32 @@
+<table id="done-work-table">
+    <tr>
+        <th>Company</th>
+        <th>Description</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Duration</th>
+        <th>Actions</th>
+    </tr>
+    <% tasks.forEach( e=> { %>
+        <tr>
+            <td>
+                <%= e.company.companyName %>
+            </td>
+            <td>
+                <%= e.description===undefined ? '' : e.description.slice(0, 42) %>
+            </td>
+            <td>
+                <%= e.createdAt.toLocaleTimeString('pl-PL').slice(0,5) %>
+            </td>
+            <td>
+                <%= e.stopedAt==undefined ? "" : e.stopedAt.toLocaleTimeString('pl-PL').slice(0,5) %>
+            </td>
+            <td>
+                <%= e.duration %>
+            </td>
+            <td>
+                <%- include('./actions', {e: e}) %>
+            </td>
+        </tr>
+        <% }) %>
+</table>

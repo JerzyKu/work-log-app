@@ -1,0 +1,24 @@
+<h2>Edit: <%= task.id %></h2>
+
+<form action="/task/<%= task.id %>/edit?_method=PUT" method="POST">
+
+    <label for="companyName">Company Name: </label>
+    <select name="companyName" id="">
+        <%- include('../partials/opiton_companys', {companys: companys, selected: task.company}) %>
+    </select>
+    <br>
+    <label for="">Description: </label>
+    <textarea name="description" id="" cols="30" rows="3"><%= task.description %></textarea>
+    <br>
+    <label>Start: </label>
+    <input type="Time" name="startedAtTime" value=<%= task.startedAt.toLocaleTimeString().slice(0,5) %> >
+    <input type="Date" name="startedAtDate" value=<%= task.startedAt.toISOString().split('T')[0] %> >
+    <br>
+    <label>Stop: </label>
+    <input type="Time" name="stopedAtTime" value=<%= task.stopedAt.toLocaleTimeString().slice(0,5) %> >
+    <input type="Date" name="stopedAtDate" value=<%= task.stopedAt.toISOString().split('T')[0] %> >
+    <br>
+    <button type="submit">Update</button>
+    <a href=<%= `/task/${task.id}` %> >Cancel</a>
+
+</form>

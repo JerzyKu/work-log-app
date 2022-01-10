@@ -12,8 +12,8 @@
             <% }) %>
         </select>
         <div>
-            <label>After</label>
-            <input type="date" name="endedAfter" value="<%= searchOptions.endedAfter %>">
+            <label for="endedAfter">After</label>
+            <input type="date" name="endedAfter" id="endedAfter" value="<%= searchOptions.endedAfter %>">
         </div>
         <div>
             <label>Before</label>
@@ -27,38 +27,6 @@
 
 <div class="section">
     <div class="label">History</div>
-    <table id="done-work-table">
-        <tr>
-            <th>Company</th>
-            <th>Description</th>
-            <th>Start</th>
-            <th>End</th>
-            <th>Actions</th>
-            <th>Duration(hh:mm:ss)</th>
-        </tr>
-        <% tasks.forEach( e=> { %>
-            <tr>
-                <td>
-                    <%= e.company.companyName %>
-                </td>
-                <td>
-                    <%= e.description===undefined ? '' : e.description.slice(0, 42) %>
-                </td>
-                <td>
-                    <%= e.createdAt.toLocaleTimeString('pl-PL').slice(0,5) %>
-                </td>
-                <td>
-                    <%= e.stopedAt==undefined ? "" : e.stopedAt.toLocaleTimeString('pl-PL').slice(0,5) %>
-                </td>
-                <td>
-                    <button> :) </button>
-                </td>
-                <td>
-                    <%= e.duration %>
-
-                </td>
-            </tr>
-            <% }) %>
-    </table>
+    <%- include('../partials/history_table', {tasks: tasks}) %> 
 
 </div>

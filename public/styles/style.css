@@ -49,13 +49,13 @@ body {
     border-radius: 10px;
 }
 
-button {
+/* button {
     background-color: #fff;
     border-radius: 10px;
     min-height: 20px;
     padding: 7px 14px;
     font-size: 1.2rem;
-}
+} */
 
 select {
     font-size: 1.2rem;
@@ -122,4 +122,15 @@ header a:active {
 .body {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.actions > * {
+    display: block;
+    /* margin-right: 5px; */
 }
