@@ -1,12 +1,12 @@
-<h2>settings</h2>
-
+<h2>Settings:</h2>
+<br>
 <form action="/settings" method="POST">
     <%- include('_form_fields')  %> 
     <button type="submit">Create</button>
     <a href="/">Cancel</a>
 </form>
-
+<br>
+<h3>Company list:</h3>
 <% companys.forEach(e => {%>
     <div> <%= e.companyName  %> </div>
-    <br>
 <% }) %> 

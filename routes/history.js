@@ -10,8 +10,6 @@ router.get('/', async (req, res) => {
 
     let query = Task.find()
 
-    // console.log(req.query.companyName);
-
     if (req.query.companyName != null && req.query.companyName != ''){
         query = query.where('company', req.query.companyName)
     }
@@ -25,6 +23,7 @@ router.get('/', async (req, res) => {
     let t = {}
     t.endedAfter = new Date(new Date().setDate(1)).toISOString().split('T')[0]
     t.endedBefore = new Date().toISOString().split('T')[0]
+
     try {
         tasks = await query.populate('company').exec()
         companys = await Company.find({}).exec()
@@ -33,7 +32,7 @@ router.get('/', async (req, res) => {
         tasks = []
         companys = []
     }
-    res.render('history/index', {tasks: tasks, companys: companys, searchOptions: req.query === {} ? req.query : t})
+    res.render('history/index', {tasks: tasks, companys: companys, searchOptions: Object.keys(req.query).length == 0 ? t : req.query})
 })
 
 module.exports = router

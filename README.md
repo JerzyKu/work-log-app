@@ -10,6 +10,7 @@ Application is used for logging and summation time spended of multiple workers f
 ## To do's: 
 * ~~edit/delete task~~
 * last month button in history
+* inprove settings view
 * delete company, if used set state of disable 
 * edit company
 * counting Hours in history

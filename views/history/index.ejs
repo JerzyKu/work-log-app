@@ -3,13 +3,7 @@
     <form action="/history" method="GET">
         <select name="companyName">
             <option value="">All</option>
-            <% companys.forEach(e=> { %>
-                <% if (e.id == searchOptions.companyName) { %>
-                    <option selected value="<%= e.id %>"><%= e.companyName %></option>
-                <% } else { %>
-                    <option value="<%= e.id %>"><%= e.companyName %></option>
-                <% }%>
-            <% }) %>
+            <%- include('../partials/opiton_companys', {companys: companys, selected: ''})%>
         </select>
         <div>
             <label for="endedAfter">After</label>
@@ -17,10 +11,11 @@
         </div>
         <div>
             <label>Before</label>
-            <input type="date" name="endedBefore" value="<%= searchOptions.endedBefore %>">
+            <input type="date" name="endedBefore" id="endedBefore" value="<%= searchOptions.endedBefore %>">
         </div>
         <button type="submit">Search</button>
     </form>
+    <button id='last-month-btn'>Last Month</button>
 </div>
 
 
@@ -28,5 +23,4 @@
 <div class="section">
     <div class="label">History</div>
     <%- include('../partials/history_table', {tasks: tasks}) %> 
-
 </div>
