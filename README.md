@@ -1,3 +1,5 @@
+#abandoned
+
 # Work Log App
 This is my first web app<br/>
 creadted based on YT chalnel Web Dev Simplified: https://www.youtube.com/playlist?list=PLZlA0Gpn_vH8jbFkBjOuFjhxANC63OmXM
